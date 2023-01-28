@@ -1,13 +1,15 @@
 export const shuffleAnswers = (question) => {
   if (!question) {
-    return [];
+    return []
   }
+
   const unshuffledAnswers = [
     question.correctAnswer,
     ...question.incorrectAnswer,
   ]
- return unshuffledAnswers.map((answer) => ({ sorted: Math.random(), value: answer }))
-    .sort((a, b) => a.sort - b.sort)
-    .map((obj) => obj.value);
-};
 
+  return unshuffledAnswers
+    .map(answer => ({ sorted: Math.random(), value: answer }))
+    .sort((a, b) => a.sorted - b.sorted)
+    .map(obj => obj.value)
+}

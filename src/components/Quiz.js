@@ -6,11 +6,14 @@ const Quiz = () => {
   const [quizState, dispatch] = useContext(QuizContext)
 
   const amountOfAnswers = (amount) => {
-    if (amount === 0) {
+    if (!amount) {
       return "You have completed the quiz :( Better luck next time"
-    } else if (amount > 0 && amount < 5) {
+    }
+  
+    if (amount < 5) {
       return "You almost did it."
     }
+
     return "You have completed the quiz"
   }
 
